@@ -46,7 +46,6 @@ body,
   flex-basis: auto;
   overflow: hidden;
   padding: 0;
-  overflow-y: scroll;
 }
 
 #footer-container {

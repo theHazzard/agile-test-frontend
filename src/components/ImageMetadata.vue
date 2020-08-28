@@ -1,11 +1,11 @@
 <template>
   <div id="metadata-overlay">
     <div id="metadata-container">
-      <div class="info">
+      <div v-show="image.camera" class="info">
         <i class="fas fa-camera-retro icon"></i>
         <span>{{ image.camera }}</span>
       </div>
-      <div class="info">
+      <div v-show="image.author" class="info">
         <i class="fas fa-user icon"></i>
         <span>{{ image.author }}</span>
       </div>
@@ -21,7 +21,7 @@ export default {
   props: ["image"],
   computed: {
     tags() {
-      return this.$props.image?.tags.split(" ");
+      return this.$props.image?.tags.split(" ").filter(tag => tag);
     }
   },
   mounted() {
@@ -43,23 +43,31 @@ export default {
 }
 
 #metadata-container {
+  margin: auto 32px 32px;
   align-items: center;
   align-items: center;
   pointer-events: all;
   opacity: 0.2;
-  width: min-content;
+  width: max-content;
   height: min-content;
   background-color: rgba(0, 0, 0, 1);
   padding: 16px;
+  transition: opacity 0.25s ease-out;
 }
 
 #metadata-container:hover {
   opacity: 0.8;
 }
 
+#tags {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
 .tag {
   padding: 4px 8px;
-  margin: 0 8px;
+  margin: 8px;
   background-color: teal;
   border-radius: 8px;
 }
@@ -70,16 +78,12 @@ export default {
   align-items: center;
   margin-bottom: 16px;
   max-width: 400px;
-  word-break: normal;
   overflow: hidden;
-}
-
-.info > span {
-  white-space: nowrap;
 }
 
 .icon {
   font-size: 30px;
   margin-right: 16px;
+  width: 30px;
 }
 </style>

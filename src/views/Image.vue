@@ -22,7 +22,6 @@ export default {
   async mounted() {
     const data = await getResource(`images/${this.$route.params.imageId}`);
     this.image = data;
-    console.log(data)
   }
 };
 </script>
@@ -30,5 +29,7 @@ export default {
 <style scoped>
 #viewer {
   position: relative;
+  overflow-y: hidden;
+  height: 100%;
 }
 </style>
