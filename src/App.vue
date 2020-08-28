@@ -38,18 +38,17 @@ body,
 #logo-container {
   box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.15);
   background-color: #3a1839;
-  flex-basis: min-content;
   flex-grow: 0;
+  flex-basis: initial;
 }
 
 #page-content {
-  flex-basis: auto;
   overflow: hidden;
   padding: 0;
 }
 
 #footer-container {
-  flex-basis: min-content;
+  flex-basis: initial;
   background-color: #3a1839;
   color: whitesmoke;
   flex-grow: 0;
