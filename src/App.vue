@@ -9,12 +9,16 @@
     </div>
 
     <footer id="footer-container">
-      Agile engine test, made by <a href="">Enzo Luis Strongoli</a>
+      Agile engine test, made by
+      <a href="https://www.linkedin.com/in/enzostrongoli/"
+        >Enzo Luis Strongoli</a
+      >
     </footer>
   </div>
 </template>
 
 <style>
+@import "./assets/vue-sliding-pagination.css";
 #app > * {
   padding: 10px;
   flex: 1 100%;

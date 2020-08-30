@@ -1,6 +1,6 @@
 <template>
   <router-link class="image-item" :to="`/image/${image.id}`">
-    <img class="image" :src="image.cropped_picture" alt="" />
+    <img class="image" v-lazy="image.cropped_picture" alt="" />
   </router-link>
 </template>
 

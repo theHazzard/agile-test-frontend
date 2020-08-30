@@ -1,6 +1,9 @@
 <template>
   <div id="metadata-overlay">
     <div id="metadata-container">
+      <button @click="share" id="sharebutton">
+        Share!
+      </button>
       <div v-show="image.camera" class="info">
         <i class="fas fa-camera-retro icon"></i>
         <span>{{ image.camera }}</span>
@@ -24,6 +27,18 @@ export default {
       return this.$props.image?.tags.split(" ").filter(tag => tag);
     }
   },
+  methods: {
+    share() {
+      const link = `whatsapp://send?text=take a look to this! ${window.location.href}`;
+      window.open(link);
+      // let url = document.location.href;
+      // const canonicalElement = document.querySelector("link[rel=canonical]");
+      // if (canonicalElement !== null) {
+      //   url = canonicalElement.href;
+      // }
+      // navigator.share({ url });
+    },
+  },
   mounted() {
     console.log(this.image);
   }
@@ -31,6 +46,24 @@ export default {
 </script>
 
 <style scoped>
+#sharebutton {
+  background-color: darkcyan;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: whitesmoke;
+  font-weight: 600;
+  font-size: 16px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+#sharebutton:hover {
+  background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.45)), darkcyan;
+}
+
 #metadata-overlay {
   top: 0;
   bottom: 0;
@@ -43,6 +76,7 @@ export default {
 }
 
 #metadata-container {
+  position: relative;
   margin: auto 32px 32px;
   align-items: center;
   align-items: center;
